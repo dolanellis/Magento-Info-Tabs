@@ -19,17 +19,26 @@ Catalog Product View Layout
 					<action method="addTab" translate="title" module="catalog"><alias>description</alias><title>Product Description</title><block>catalog/product_view_description</block><template>catalog/product/view/description.phtml</template></action>
 					<action method="addTab" translate="title" module="catalog"><alias>upsell_products</alias><title>We Also Recommend</title><block>catalog/product_list_upsell</block><template>catalog/product/list/upsell.phtml</template></action>
 					<action method="addTab" translate="title" module="catalog"><alias>additional</alias><title>Additional Information</title><block>catalog/product_view_attributes</block><template>catalog/product/view/attributes.phtml</template></action>
-				  	<!-- Static block -->
+					<!-- Single Attribute Tab -->
+					<action method="addTab" translate="title" module="catalog"><alias>example_alias</alias><title>Example_Title</title><block>catalog/product_view_attributes</block><template>catalog/product/view/example.phtml</template></action>
+					<!-- Static block Tab -->
 					<action method="addTab" translate="title" module="catalog"><alias>static_block_name</alias><title>Warranty</title><block>cms/block</block><template>null</template></action>
                               		<!-- define the CMS block ID for the shipping info tab -->
 					<block type="cms/block" name="product.info.tabs.static_block_name" as="static_block_name">
 						<action method="setBlockId"><block_id>static_block_name</block_id></action>
-					</block> 
+					</block>
 				</block>       
 			</reference>
 		</reference>
 	</catalog_product_view>  
 </layout>
+```
+
+####For Single Attribute Tabs Create example.phtml in /YourTheme/template/catalog/product/view/example.phtml
+
+```phtml
+<?php $_product = $this->getProduct() ?>
+<?php echo $_product->getData('example_attribute'); ?>
 ```
 
 ####Create "tabs.phtml" file in (/YourTemplate/catalog/product/view/tabs.phtml) using the code below:
@@ -115,7 +124,6 @@ new Varien.Tabs('.product-tabs');
 </script>
 
 ```
-
 
 ####Add This to /YourTemplate/catalog/product/view.phtml in the area you would like you Info Tabs to show up
 
