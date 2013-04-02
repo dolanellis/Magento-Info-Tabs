@@ -16,7 +16,9 @@ Catalog Product View Layout
                               		<!-- define the CMS block ID for the shipping info tab -->
 					<block type="cms/block" name="product.info.tabs.static_block_name" as="static_block_name">
 						<action method="setBlockId"><block_id>static_block_name</block_id></action>
-					</block> 
+					</block>
+					<!-- Making a tab from a single attribute -->
+					<action method="addTab" translate="title" module="catalog"><alias>example</alias><title>Software Information</title><block>catalog/product_view_attributes</block><template>catalog/product/view/example.phtml</template></action>
 				</block>       
 			</reference>
 		</reference>
